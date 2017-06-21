@@ -12,7 +12,9 @@ var articleNum = 0;
 
 function runQuery(numArticles, queryURL){
 
-	$.ajax({url: queryURL, method: "GET"}) 
+	$.ajax({
+		url: queryURL, 
+		method: "GET"}) 
 		.done(function(NYTData) {
 
 			for (var i=0; i<numArticles; i++) {
