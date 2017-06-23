@@ -4,23 +4,38 @@ cb.setToken("221904417-YJ8a9KVCFjCzjIIyy3O1OiY4oRIbu79Bvj43JrBX", "jlzw9IzBftxrS
 
 
 
-var params = {
-    q: "$msft"
-};
-cb.__call(
-    "search_tweets",
-    params,
-    function (reply) {
-        console.log(reply);
-        // ...
-    }
-);
+ 
 
-cb.__call(
-    "search_tweets",
-    "q=Twitter",
-    function (reply, rate_limit_status) {
-        console.log(rate_limit_status);
-        // ...
-    }
-);
+
+$('#runSearch').on('click', function(event){
+   event.preventDefault()
+   var search = $('#srch-term').val().trim();
+  twitterCall(search)
+
+   console.log("hello");
+});
+
+  var twitterCall = function(searchTerm){
+    console.log(searchTerm);
+            var params = {
+                q: searchTerm
+            };
+            cb.__call(
+                "search_tweets",
+                params,
+                function (reply) {
+                    console.log(reply);
+                    // ...
+                }
+            );
+
+            cb.__call(
+                "search_tweets",
+                "q=Twitter",
+                function (reply, rate_limit_status) {
+                    console.log(rate_limit_status);
+                    // ...
+                }
+            );
+   }
+   
