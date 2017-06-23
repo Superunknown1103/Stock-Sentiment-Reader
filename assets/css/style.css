@@ -1,4 +1,6 @@
-/* Remove the navbar's default margin-bottom and rounded borders */ 
+* {
+  box-sizing: border-box;
+}
     .navbar {
       margin-bottom: 0;
       border-radius: 0;
@@ -37,8 +39,7 @@
     }
 
     .footer {
-
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
   left: 0;
@@ -47,9 +48,45 @@
   text-align: center;
   background-color: black;
   color: white;
+  border: 5px groove grey;
     }
 
-  .headingimage {
-    background-image: "assets/images/computer.jpe";
+.wrap {
+  height: 100%;
+  position: absolute;
+  background-image: url('../images/background.jpg');
+  color: #6699f6;
+  font-family: 'Arsenal', cursive;
+  overflow: hidden;
+  padding: 5vw;
+}
 
-  }
+h1 {
+  color: white;
+  text-align: center;
+
+}
+
+#infobox1 {
+  color: gold !important;
+  margin: 5px;
+  display: inline-block;
+
+}
+
+#infobox2 {
+  color: gold !important;
+  margin: 5px;
+  display: inline-block;
+
+}
+
+#infobox3 {
+  color: gold !important;
+  margin: 5px;
+  display: inline-block;
+}
+
+.navbar-form {
+  padding: 10px 325px !important;
+}
