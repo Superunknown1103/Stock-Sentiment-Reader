@@ -5,84 +5,102 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script
-  src="https://code.jquery.com/jquery-3.2.1.js"
-  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-  crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="assets/javascript/codebird.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Arsenal|Contrail+One" rel="stylesheet">
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand"><img  class="navbar-brand" class="logo" src="assets/images/logo.png" height=150px width=100px></a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<div class="wrap">
-<div class="container-fluid text-center">    
-  <div class="row content">
-    <div class="text-center"> 
-      <h1><strong>Stocks vs. Sentiment</strong></h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <hr>
-      <form class="navbar-form" role="search">
-    <div class="input-group add-on">
-      <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
-      <div class="input-group-btn">
-        <button class="btn btn-default" type="submit" id="runSearch"><i class="glyphicon glyphicon-search"></i></button>
-        <div class="panel-body" id="wellSection">
-    
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <h1 class="cash1">S</h1><h1 class="cash2">t</h1><h1 class="cash3">o</h1><h1 class="cash4">c</h1><h1 class="cash5">k </h1><h1 class="titler1">v</h1><h1 class="titler1">s.<h1 class="sent1"> S</h1><h1 class="sent2">e</h1><h1 class="sent3">n</h1><h1 class="sent4">t</h1><h1 class="sent5">i</h1><h1 class="sent6">m</h1><h1 class="sent7">e</h1><h1 class="sent8">n</h1><h1 class="sent9">t</h1>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+          </ul>
         </div>
       </div>
-    </div>
-  </form>
-  <div class="row">
-   <div id="infobox1" class="col-sm-4 text-left">
-      <p>Williamsburg occupy retro echo park. Chillwave gentrify next level, activated charcoal DIY stumptown truffaut cliche sartorial. Woke art party drinking vinegar normcore selvage, retro sustainable heirloom mixtape shaman. Kombucha listicle tilde umami, flannel portland tacos craft beer cloud bread XOXO banjo schlitz synth man braid sartorial. Pug readymade pop-up microdosing whatever hexagon. Deep v next level heirloom, iPhone brooklyn bespoke humblebrag migas taiyaki. Farm-to-table XOXO ennui selvage synth.</p>
-      </div>
-    <div id="infobox2" class="col-sm-4 text-left">
-      <p>Williamsburg occupy retro echo park. Chillwave gentrify next level, activated charcoal DIY stumptown truffaut cliche sartorial. Woke art party drinking vinegar normcore selvage, retro sustainable heirloom mixtape shaman. Kombucha listicle tilde umami, flannel portland tacos craft beer cloud bread XOXO banjo schlitz synth man braid sartorial. Pug readymade pop-up microdosing whatever hexagon. Deep v next level heirloom, iPhone brooklyn bespoke humblebrag migas taiyaki. Farm-to-table XOXO ennui selvage synth.</p>
-      </div>
-      <div id="infobox3" class="col-sm-3 text-left">
-      <p>Williamsburg occupy retro echo park. Chillwave gentrify next level, activated charcoal DIY stumptown truffaut cliche sartorial. Woke art party drinking vinegar normcore selvage, retro sustainable heirloom mixtape shaman. Kombucha listicle tilde umami, flannel portland tacos craft beer cloud bread XOXO banjo schlitz synth man braid sartorial. Pug readymade pop-up microdosing whatever hexagon.</p>
-      </div>
-      </div>
+    </nav>
+    <div class="wrap">
+      <div class="container-fluid text-center">    
+        <div class="row content">
+          <div class="jumbotron">
+            <div class="text-center">
+              <h1><strong>Search Ticker</strong></h1>
+              <p class="desc">Our app will help you compare internet sentiment to ticker prices over the course of a month. Search by ticker below. Need information on sentiment or tickers? <a id="myBtn">Click here.</a> </p>
+              <hr>
+            </div>
+            <form class="navbar-form" role="search">
+              <div class="input-group add-on">
+                <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+                <div class="input-group-btn">
+                  <button class="btn btn-default" type="submit" id="runSearch"><i class="glyphicon glyphicon-search"></i></button>
+                  <div class="panel-body" id="wellSection">
+                    <!-- results -->
+
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="row">
+             <div id="infobox1" class="col-sm-4 text-left">
+              <p></p>
+            </div>
+            <div id="infobox2" class="col-sm-4 text-left">
+              <p></p>
+            </div>
+            <div id="infobox3" class="col-sm-3 text-left">
+              <p></p>
+            </div>
+          </div>
        <!-- <h3>Your Graphs</h3>
       <hr></hr>
     </div>  -->
-    </div>
-  </div>
   </div>
 </div>
-<footer class="footer">
-  <p>Copyright Bannana Inc.</p>
-</footer>
-<<<<<<< HEAD
-=======
+</div>
+</div>
+<div id="myModal" class="modal">
 
-<script
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class='modalinfo'>
+    <h1>Sentiment</h1>
+    <hr></hr>
+    <p>Sentiment is a measurement of emotional response. This information is provided by an application made by Google. Our app feeds through articles to evaluate sentiment level. Sentiment level can be neutral, positive or negative. </p>
+    </div>
+    <div class='modalinfo'>
+    <h1>Stock</h1>
+    <hr></hr>
+    <p>saafjdghpds
+      gjpehpghp</p>
+      </div>
+      <div class='modalinfo'>
+      <h1>How to Use this Information</h1>
+    <hr></hr>
+      <p>sfjpdsjgpdgipejgp</p>
+    </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <p>Copyright Bannana Inc.</p>
+  </footer>
+  <script
   src="https://code.jquery.com/jquery-3.2.1.js"
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
   crossorigin="anonymous"></script>
-<script type="text/javascript" src="assets/javascript/twitter.js"></script>
-
->>>>>>> 45a77ba5aa34b77645b7519fe643fb822c2b7546
+  <script src="assets/javascript/main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/javascript/codebird.js"></script>
+  <script type="text/javascript" src="assets/javascript/twitter.js"></script>
 </body>
 </html>

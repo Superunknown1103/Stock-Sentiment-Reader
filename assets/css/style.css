@@ -54,17 +54,170 @@
 .wrap {
   height: 100%;
   position: absolute;
-  background-image: url('../images/background.jpg');
-  color: #6699f6;
+  background-image: url('../images/gradient.jpe');
+  background-size: 100%;
+  color: black;
   font-family: 'Arsenal', cursive;
   overflow: hidden;
   padding: 5vw;
 }
 
 h1 {
-  color: white;
+  color: black;
   text-align: center;
 
+}
+
+.link:hover{
+  cursor: pointer;
+}
+
+/*title gradient below*/
+.cash1 {
+  color: #598d51;
+  font-family: 'Play', sans-serif;
+  display: inline;
+}
+
+.cash2 {
+  color: #5a9f4f;
+  font-family: 'Play', sans-serif;
+  display: inline;
+}
+
+.cash3 {
+  color: #56b448;
+  font-family: 'Play', sans-serif;
+  display: inline;
+}
+
+.cash4 {
+  color: #4cc939;
+  font-family: 'Play', sans-serif;
+  display: inline;
+}
+
+.cash5 {
+  color: #40dd28;
+  font-family: 'Play', sans-serif;
+  display: inline;
+}
+
+.titler1 {
+  color: white;
+  font-family: 'Play', sans-serif;
+  display: inline;
+}
+
+.sent1 {
+  color: #2589d4;
+  font-family: 'Play', sans-serif;
+  display: inline;
+}
+
+.sent2 {
+  color: #2b84c7;
+  font-family: 'Play', sans-serif;
+  display: inline;
+}
+
+.sent3 {
+  color: #2f81bf;
+  font-family: 'Play', sans-serif;
+  display: inline;
+}
+
+.sent4 {
+  color: #2f77ae;
+  font-family: 'Play', sans-serif;
+  display: inline;
+}
+
+.sent5 {
+  color: #32709f;
+  font-family: 'Play', sans-serif;
+  display: inline;
+}
+
+.sent6 {
+  color: #346b94;
+  font-family: 'Play', sans-serif;
+  display: inline;
+}
+
+.sent7 {
+  color: #366487;
+  font-family: 'Play', sans-serif;
+  display: inline;
+}
+
+.sent8 {
+  color: #345b78;
+  font-family: 'Play', sans-serif;
+  display: inline;
+}
+
+.sent9 {
+  color: #315067;
+  font-family: 'Play', sans-serif;
+  display: inline;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    display: inline-block;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: grey;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.modalinfo {
+  font-family: 'Play', sans-serif;
+  display: inline-block;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*end gradient*/
+
+.navbar-header {
+  padding: 5px;
+}
+
+.navbar.navbar-inverse {
+  border-bottom: solid 3px #897b27;
+}
+.jumbotron {
+  background-image: url('../images/background.jpg');
+  background-size: 100%;
 }
 
 #infobox1 {
@@ -89,4 +242,9 @@ h1 {
 
 .navbar-form {
   padding: 10px 325px !important;
+ /* z-index: 1 !important;*/
+}
+
+.desc {
+  background-color: #ECEBBD;
 }
