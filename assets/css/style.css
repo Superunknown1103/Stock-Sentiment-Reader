@@ -164,6 +164,7 @@ h1 {
 }
 
 .modal {
+    visibility: hidden;
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 999; /* Sit on top */
@@ -175,6 +176,7 @@ h1 {
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     display: inline-block;
+    border: solid 5px black;
 }
 
 /* Modal Content/Box */
@@ -186,9 +188,35 @@ h1 {
     width: 80%; /* Could be more or less, depending on screen size */
 }
 
-.modalinfo {
+.modalinfo1 {
   font-family: 'Play', sans-serif;
   display: inline-block;
+  width: 31%;
+  height: 100%;
+  background-color: mediumaquamarine;
+  padding: 1px;
+  color: black;
+}
+
+.modalinfo2 {
+  font-family: 'Play', sans-serif;
+  display: inline-block;
+  width: 31%;
+  height: 100%;
+  background-color: lightseagreen;
+  padding: 1px;
+  color: black;
+  margin-bottom: 50px;
+}
+
+.modalinfo3 {
+  font-family: 'Play', sans-serif;
+  display: inline-block;
+  width: 31%;
+  height: 100%;
+  background-color: darkcyan;
+  padding: 1px;
+  color: black;
 }
 
 /* The Close Button */
@@ -246,5 +274,9 @@ h1 {
 }
 
 .desc {
-  background-color: #ECEBBD;
+  background-color: navajowhite;
+}
+
+#myBtn {
+  color: black;
 }

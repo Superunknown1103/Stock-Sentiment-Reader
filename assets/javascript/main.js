@@ -10,6 +10,7 @@ var span = document.getElementsByClassName("close")[0];
 // When the user clicks on the button, open the modal 
 btn.onclick = function() {
     modal.style.display = "block";
+    modal.style.visibility = "visible";
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -22,4 +23,8 @@ window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
+}
+
+$('#runSearch').onclick = function () {
+	$('#wellSection').append('<div>' + 'some info' + '</div>');
 }
