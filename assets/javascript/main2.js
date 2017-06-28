@@ -17,7 +17,7 @@ function runQuery(numArticles, queryURL){
 		.done(function(NYTData) {
 			console.log(NYTData);
 
-			for (var i=0; i<50; i++) {
+			for (var i=0; i<10; i++) {
 
 					articleNum++;
 
@@ -25,7 +25,14 @@ function runQuery(numArticles, queryURL){
 					wellSection.addClass('well');
 					wellSection.attr('id', 'articleWell-' + articleNum)
 					$('#wellSection').append(wellSection);
-					console.log(NYTData.response.docs[i].headline);
+
+					var jsonReturn = (NYTData.response.docs[i].headline);
+					var jsonDate = (NYTData.response.docs[i].pub_date);
+					var resultStringDate = JSON.stringify(jsonDate);
+					var resultString = JSON.stringify(jsonReturn);
+					console.log(resultString, jsonDate);
+
+					
 
 					if(NYTData.response.docs[i].headline != "null")
 					{
@@ -66,11 +73,11 @@ function runQuery(numArticles, queryURL){
 		//endYear = $('#endYear').val().trim();
 
 		if (parseInt(startYear)) {
-			queryURL = queryURL + "&begin_date=" + startYear + "0101";
+			queryURL = queryURL + "&begin_date=" + startYear + "0601";
 		}
 
 		if (parseInt(endYear)) {
-			queryURL = queryURL + "&end_date=" + endYear + "0101";
+			queryURL = queryURL + "&end_date=" + endYear + "0628";
 		}
 
 		runQuery(resultsNum, queryURL);
