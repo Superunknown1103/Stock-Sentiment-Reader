@@ -274,9 +274,13 @@ h1 {
 }
 
 .desc {
-  background-color: navajowhite;
+  background-color: silver;
 }
 
 #myBtn {
   color: black;
+}
+
+#myBtn:hover {
+  cursor: pointer;
 }
