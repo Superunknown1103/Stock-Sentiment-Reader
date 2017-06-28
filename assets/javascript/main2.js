@@ -21,11 +21,6 @@ function runQuery(numArticles, queryURL){
 
 					articleNum++;
 
-					var wellSection = $("<div>");
-					wellSection.addClass('well');
-					wellSection.attr('id', 'articleWell-' + articleNum)
-					$('#wellSection').append(wellSection);
-
 					var jsonReturn = (NYTData.response.docs[i].headline);
 					var jsonDate = (NYTData.response.docs[i].pub_date);
 					var resultStringDate = JSON.stringify(jsonDate);
@@ -34,24 +29,7 @@ function runQuery(numArticles, queryURL){
 
 					
 
-					if(NYTData.response.docs[i].headline != "null")
-					{
-						$("#articleWell-"+ articleNum).append('<h3><span class="label label-primary">' + articleNum + '</span><strong>   ' + NYTData.response.docs[i].headline.main + "</strong></h3>");
-						
-					}
 					
-					if( NYTData.response.docs[i].byline && NYTData.response.docs[i].byline.hasOwnProperty("original"))
-					{
-						$("#articleWell-"+ articleNum).append('<h5>' + NYTData.response.docs[i].byline.original + "</h5>");
-
-					}
-					if( NYTData.response.docs[i].byline && NYTData.response.docs[i].section_name != "null"){
-					$("#articleWell-"+ articleNum).append('<h5>Section: ' + NYTData.response.docs[i].section_name + "</h5>");
-					}
-					if( NYTData.response.docs[i].byline && NYTData.response.docs[i].pub_date != "null"){
-					$("#articleWell-"+ articleNum).append('<h5>' + NYTData.response.docs[i].pub_date + "</h5>");
-					}
-					$("#articleWell-"+ articleNum).append("<a href='" + NYTData.response.docs[i].web_url + "'>" + NYTData.response.docs[i].web_url + "</a>");
 			}
 		});
 
@@ -68,9 +46,6 @@ function runQuery(numArticles, queryURL){
 
 		resultsNum = $("#numRecordsSelect").val();
 
-		//startYear = $('#startYear').val().trim();
-
-		//endYear = $('#endYear').val().trim();
 
 		if (parseInt(startYear)) {
 			queryURL = queryURL + "&begin_date=" + startYear + "0601";
