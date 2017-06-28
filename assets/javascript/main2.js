@@ -26,9 +26,6 @@ function runQuery(numArticles, queryURL){
 					var resultStringDate = JSON.stringify(jsonDate);
 					var resultString = JSON.stringify(jsonReturn);
 					console.log(resultString, jsonDate);
-
-					
-
 					
 			}
 		});
