@@ -25,6 +25,6 @@ window.onclick = function(event) {
     }
 }
 
-$('#runSearch').onclick = function () {
-	$('#wellSection').append('<div>' + 'some info' + '</div>');
-}
+//$('#runSearch').onclick = function () {
+//	$('#wellSection').append('<div>' + 'some info' + '</div>');
+//}
