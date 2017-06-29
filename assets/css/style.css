@@ -48,24 +48,40 @@
   text-align: center;
   background-color: black;
   color: white;
-  border: 5px groove grey;
+  border: 5px groove #897b27;
     }
 
 .wrap {
-  height: 100%;
+  height: 500%;
   position: absolute;
-  background-image: url('../images/gradient.jpe');
-  background-size: 100%;
+  width: 100%;
+  background-size: cover;
   color: black;
   font-family: 'Arsenal', cursive;
-  overflow: hidden;
   padding: 5vw;
+  background: url('../images/gradient.jpe') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
 }
 
 h1 {
   color: black;
   text-align: center;
 
+}
+
+.date-picker {
+  display: inline-block;
+}
+
+#dater {
+  display: inline-block;
+}
+
+#canvas {
+  background-color: transparent;
 }
 
 .link:hover{
@@ -180,19 +196,25 @@ h1 {
 }
 
 /* Modal Content/Box */
+.modal-align {
+display: -webkit-flex; /* Safari */
+    -webkit-align-items: center; /* Safari 7.0+ */
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+
 .modal-content {
-    background-color: grey;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+  background-color: grey;
+  margin: 15%; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
 }
 
 .modalinfo1 {
   font-family: 'Play', sans-serif;
-  display: inline-block;
   width: 31%;
-  height: 100%;
   background-color: mediumaquamarine;
   padding: 1px;
   color: black;
@@ -200,20 +222,17 @@ h1 {
 
 .modalinfo2 {
   font-family: 'Play', sans-serif;
-  display: inline-block;
   width: 31%;
   height: 100%;
   background-color: lightseagreen;
   padding: 1px;
   color: black;
-  margin-bottom: 50px;
 }
 
 .modalinfo3 {
   font-family: 'Play', sans-serif;
   display: inline-block;
   width: 31%;
-  height: 100%;
   background-color: darkcyan;
   padding: 1px;
   color: black;
@@ -246,6 +265,7 @@ h1 {
 .jumbotron {
   background-image: url('../images/background.jpg');
   background-size: 100%;
+  position: relative;
 }
 
 #infobox1 {
@@ -271,10 +291,15 @@ h1 {
 .navbar-form {
   padding: 10px 325px !important;
  /* z-index: 1 !important;*/
+ display: -webkit-flex; /* Safari */
+  -webkit-align-items: center; /* Safari 7.0+ */
+  display: flex;
+  align-items: center;
 }
 
 .desc {
-  background-color: silver;
+  background-color: #c4b8ac;
+  color: black;
 }
 
 #myBtn {
@@ -283,4 +308,9 @@ h1 {
 
 #myBtn:hover {
   cursor: pointer;
+}
+
+html, body {
+height: 100%;
+
 }

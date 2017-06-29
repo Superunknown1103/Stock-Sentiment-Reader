@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
   <link href="https://fonts.googleapis.com/css?family=Arsenal|Contrail+One" rel="stylesheet">
 </head>
 <body>
@@ -32,27 +33,30 @@
           <div class="jumbotron">
             <div class="text-center">
               <h1><strong>Search Ticker</strong></h1>
-              <p class="desc">Our app will help you compare internet sentiment to ticker prices over the course of a month. Search by ticker below. Need information on sentiment or tickers? <a id="myBtn">Click here.</a> </p>
+              <p class="desc">Our app will help you compare internet sentiment to ticker prices over the course of a month or other selected time frame. Search by ticker below. Need information on sentiment or tickers? <a id="myBtn">Click here.</a> </p>
               <hr>
             </div>
             <form class="navbar-form" role="search">
               <div class="input-group add-on">
-
-              
                 <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
                 <div class="input-group-btn">
                   <button class="btn btn-default" type="submit" id="runSearch"><i class="glyphicon glyphicon-search"></i></button>
                   <button class="btn btn-default" type="submit" id="clearAll">Clear All</button>
-
-
-
+                   </div>
+              </div>
+              <div class="date-picker">
+                  <div id="dater" class="pull-left" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100% display: inline-block;">
+                  <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                  <span></span> <b class="caret"></b>
+                  </div>
+                  </div>
+                  </form>
+                  <canvas id="canvas" height="70px"></canvas>
                   <div class="panel-body" id="wellSection">
                     <!-- results -->
+                        </div>
 
                   </div>
-                </div>
-              </div>
-            </form>
             <div class="row">
              <div id="infobox1" class="col-sm-4 text-left">
               <p></p>
@@ -75,7 +79,8 @@
 
   <!-- Modal content -->
   <div class="modal-content">
-    <span class="close">&times;</span>
+    <span class="close">EXIT</span>
+    <span class="modal-align">
     <div class='modalinfo1'>
     <h1>Sentiment</h1>
     <hr></hr>
@@ -84,13 +89,14 @@
     <div class='modalinfo2'>
     <h1>Stock</h1>
     <hr></hr>
-    <p>Our app will provide you with information on stocks from Intrino. This will include the price over the course of a moment.</p>
+    <p>Our app will provide you with information on stocks from Intrino. This will include the price over the course of your selected date range and other details on the company such as their CEO, exchange, address and website.</p>
       </div>
       <div class='modalinfo3'>
       <h1>So What?</h1>
     <hr></hr>
-      <p>Using this information, you can follow correlations between stocks and sentiments from the internet. This can be useful information when considering the emotional impact social media can have on a stock price. This is shown through our color-coated graph system.</p>
+      <p>There may be correlations between stocks and sentiments from the internet. Consider the emotional impact social media can have on a stock price. Evaluate sentiment through our color-coated graph system. Can this help you make a better decision?</p>
     </div>
+    <span>
     </div>
 
   </div>
@@ -102,10 +108,19 @@
   src="https://code.jquery.com/jquery-3.2.1.js"
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
   crossorigin="anonymous"></script>
-  <script src="assets/javascript/main.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+  <script type="text/javascript" src="intrino/js/tether.min.js"></script>
+  <script type="text/javascript" src="intrino/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="intrino/js/mdb.min.js"></script>
+  <script type="text/javascript" src="intrino/js/mdb.js"></script>
+  <script type="text/javascript" src="intrino/js/tether.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="assets/javascript/main2.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+  <script src="assets/javascript/main.js"></script>
+  <script src="assets/javascript/intrino.js"></script>
   <!--script type="text/javascript" src="assets/javascript/codebird.js"></script-->
   <!--script type="text/javascript" src="assets/javascript/twitter.js"></script-->
 </body>
