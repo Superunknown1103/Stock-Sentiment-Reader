@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        
+
+    </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Intrinio</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet" >
+<!-- Include Required Prerequisites -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+ 
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Jumbotron for Title -->
+    <div class="jumbotron">
+      <h1 class="text-center"><strong><i class="fa fa-newspaper-o"></i> Stock - Sentiment Comparison</strong></h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Search Ticker Symbol</h2>
+          <div id="custom-search-input">
+            <div class="input-group col-md-12">
+              <input type="text" class="form-control input-lg" placeholder="Search" />
+              <span class="input-group-btn">
+                <button class="btn btn-info btn-lg" type="button">
+                  <i class="glyphicon glyphicon-search"></i>
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+        <h2>Date Range</h2>
+        <div id="reportrange" class="pull-left" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+    <span></span> <b class="caret"></b>
+    </div>
+</div>
+      </div>
+    </div>
+
+
+    <!-- This main panel will hold each of the resulting articles -->
+    <div class="panel-body" id="wellSection">
+    </div>
+
+
+    
+    <!-- /Start your project here-->
+    <canvas id="myChart1" height="70px"></canvas>
+
+  </div>
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/tether.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script type="text/javascript">
+
+
+var startDate = '';
+var endDate = '';
+var myLineChart = null;
+
+    var start = moment().subtract(29, 'days');
+    var end = moment();
+
+        function displayedDateRange(start, end) {
+        $('#reportrange span').html(start._d.toISOString().substring(0, 10) + ' - ' + end._d.toISOString().substring(0, 10));
+
+        startDate = start._d.toISOString().substring(0, 10);
+        endDate = end._d.toISOString().substring(0, 10);
+
+        console.log(startDate);
+        console.log(endDate);
+    }
+
+$(function() {
+
+    $('#reportrange').daterangepicker({
+        startDate: start,
+        endDate: end,
+        ranges: {
+           'Today': [moment(), moment()],
+           'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+           'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+           'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+           'This Month': [moment().startOf('month'), moment().endOf('month')],
+           'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        }
+    }, displayedDateRange);
+
+
+        console.log(startDate);
+        console.log(endDate);
+    displayedDateRange(start, end);
+
+});
+
+
+    
+
+
+
+
+
+
+
+
+
+    $( ".btn-lg" ).click(function() {
+      if(myLineChart != null){
+        myLineChart.destroy();
+      }
+     
+
+      var dataset = [];
+      var dateRange = [];
+      var username = "6f5d813c0a07af969a0ce95f4753decc";
+      var password = "c3b0696922572afd46a3b18f7e29bcf9";
+      var auth = "Basic " + (username + ':' + password).toString('base64');
+      var searchTicker = $('.input-lg').val();
+      console.log(searchTicker);
+        //var queryURL = "https://api.intrinio.com/companies?ticker=" + searchTicker;
+
+
+        console.log(startDate);
+        console.log(endDate);
+        var stockQueryURL =  "https://api.intrinio.com/historical_data?ticker=" + searchTicker.toUpperCase() + "&item=close_price&start_date=" + startDate + "&end_date=" + endDate;
+
+        var companyQueryURL = "https://api.intrinio.com/companies?ticker=" + searchTicker.toUpperCase();
+
+        console.log(stockQueryURL);
+        console.log(companyQueryURL);
+
+        $.ajax({
+          beforeSend: function(request) {
+            request.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
+          },
+          url: stockQueryURL, 
+          method: "GET" }) 
+        .done(function(stockResponse) {
+
+
+          console.log(stockResponse);
+
+
+
+          for (var i = stockResponse.data.length - 1; i > 0; i--) 
+          {
+            dataset.push(stockResponse.data[i].value);
+            dateRange.push(stockResponse.data[i].date);
+    //console.log(response.Dataset);
+
+  }
+
+  console.log(dataset);
+  console.log(dateRange);
+
+
+
+
+  $(function () {
+
+    var data = {
+      labels: dateRange,
+      datasets: [
+      {
+        label: "My First dataset",
+        fillColor: "rgba(220,220,220,0.2)",
+        strokeColor: "rgba(220,220,220,1)",
+        pointColor: "rgba(220,220,220,1)",
+        pointStrokeColor: "#fff",
+        pointHighlightFill: "#fff",
+        pointHighlightStroke: "rgba(220,220,220,1)",
+        data: dataset
+      }
+      ]
+    };
+
+    var option = {
+      responsive: true,
+    };
+    // Get the context of the canvas element we want to select
+    var ctx = document.getElementById("myChart1").getContext('2d');
+    myLineChart = new Chart(ctx).Line(data, option); //'Line' defines type of the chart.
+
+  });
+
+
+//         $(function () {
+
+//           var data = {
+//             labels: ["January 1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"],
+//             datasets: [
+//             {
+//                 label: "My Second dataset",
+//                 fillColor: "rgba(151,187,205,0.2)",
+//                 strokeColor: "rgba(151,187,205,1)",
+//                 pointColor: "rgba(151,187,205,1)",
+//                 pointStrokeColor: "#fff",
+//                 pointHighlightFill: "#fff",
+//                 pointHighlightStroke: "rgba(151,187,205,1)",
+//                 data: [28, 48, 40, 19, 86, 27, 90]
+//             }
+//             ]
+//         };
+
+//         var option = {
+//             responsive: true,
+//         };
+//     // Get the context of the canvas element we want to select
+//     var ctx = document.getElementById("myChart2").getContext('2d');
+//     var myLineChart = new Chart(ctx).Line(data, option); //'Line' defines type of the chart.
+// });
+
+
+
+});
+
+
+
+
+
+        $.ajax({
+          beforeSend: function(request) {
+            request.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
+          },
+          url: companyQueryURL, 
+          method: "GET" }) 
+        .done(function(companyResponse) {
+
+
+          console.log(companyResponse);
+
+
+
+            // Empties the region associated with the articles
+            $("#wellSection").empty();
+
+            var wellSection = $("<div>");
+            wellSection.addClass('well');
+            wellSection.attr('id', 'articleWell')
+            $('#wellSection').append(wellSection);
+
+// Then display the remaining fields in the HTML (Section Name, Date, URL)
+$("#articleWell").append('<h5>Company: ' + companyResponse.name + "</h5>");
+$("#articleWell").append('<h5>CEO: ' + companyResponse.ceo + "</h5>");
+$("#articleWell").append('<h5>Symbol: ' + companyResponse.ticker + "</h5>");
+$("#articleWell").append('<h5>Exchange: ' + companyResponse.stock_exchange + "</h5>");
+$("#articleWell").append('<h5>Address: ' + companyResponse.business_address + "</h5>");
+$("#articleWell").append('<h5>Website: ' + companyResponse.company_url + "</h5>");
+});
+
+      });
+    </script>
+  </body>
+  </html>
