@@ -99,7 +99,7 @@ function retrieveNewsFeed(companyName) {
   var unixDate = moment(new Date(dateInput)).unix();
   console.log(unixDate);
   
-  var queryURL = "http://webhose.io/filterWebContent?token=dee16515-7944-4491-927d-08bac14acf2a&format=json&ts=" + unixDate + "&sort=published&q=language%3Aenglish%20site%3Awsj.com%20organization%3A" + companyName;
+  var queryURL = "https://webhose.io/filterWebContent?token=dee16515-7944-4491-927d-08bac14acf2a&format=json&ts=" + unixDate + "&sort=published&q=language%3Aenglish%20site%3Awsj.com%20organization%3A" + companyName;
   $.ajax({url: queryURL, method: "GET"}).done(function(NewsData) {
       // Here we are logging the URL so we have access to it for troubleshooting
       console.log("------------------------------------")
